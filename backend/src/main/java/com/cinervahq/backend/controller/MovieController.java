@@ -20,4 +20,9 @@ public class MovieController {
     public List<Movie> getAllMovies() {
         return movieService.getAllMovies();
     }
+
+    @PostMapping
+    public Movie createMovie(@RequestBody Movie movie) {
+        return movieService.saveMovie(movie);
+    }
 }
