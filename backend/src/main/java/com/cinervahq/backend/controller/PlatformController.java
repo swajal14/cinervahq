@@ -8,6 +8,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/platforms")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PlatformController {
 
     private final PlatformRepository platformRepository;

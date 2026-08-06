@@ -8,21 +8,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/prices")
+@CrossOrigin(origins = "http://localhost:5173")
 public class PriceComparisonController {
 
-    private final PriceComparisonRepository repository;
+    private final PriceComparisonRepository priceComparisonRepository;
 
-    public PriceComparisonController(PriceComparisonRepository repository) {
-        this.repository = repository;
+    public PriceComparisonController(PriceComparisonRepository priceComparisonRepository) {
+        this.priceComparisonRepository = priceComparisonRepository;
     }
 
     @GetMapping
     public List<PriceComparison> getAllPrices() {
-        return repository.findAll();
-    }
-
-    @GetMapping("/best/{movieId}")
-    public PriceComparison getBestPrice(@PathVariable Long movieId) {
-        return repository.findTopByMovieIdOrderByTotalPriceAsc(movieId);
+        return priceComparisonRepository.findAll();
     }
 }
