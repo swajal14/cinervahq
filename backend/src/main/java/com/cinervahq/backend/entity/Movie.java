@@ -11,15 +11,11 @@ public class Movie {
     private Long id;
 
     private String title;
-
     private String language;
-
     private String genre;
-
     private Double rating;
-
-    public Movie() {
-    }
+    private String posterUrl;
+    private String trailerUrl;
 
     public Long getId() {
         return id;
@@ -59,5 +55,21 @@ public class Movie {
 
     public void setRating(Double rating) {
         this.rating = rating;
+    }
+
+    public String getPosterUrl() {
+        return posterUrl;
+    }
+
+    public void setPosterUrl(String posterUrl) {
+        this.posterUrl = posterUrl;
+    }
+
+    public String getTrailerUrl() {
+        return trailerUrl;
+    }
+
+    public void setTrailerUrl(String trailerUrl) {
+        this.trailerUrl = trailerUrl;
     }
 }

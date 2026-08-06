@@ -1,7 +1,7 @@
 package com.cinervahq.backend.controller;
 
 import com.cinervahq.backend.entity.Movie;
-import com.cinervahq.backend.service.MovieService;
+import com.cinervahq.backend.repository.MovieRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -10,20 +10,19 @@ import java.util.List;
 @RequestMapping("/api/movies")
 public class MovieController {
 
-    private final MovieService movieService;
+    private final MovieRepository movieRepository;
 
-    public MovieController(MovieService movieService) {
-        this.movieService = movieService;
+    public MovieController(MovieRepository movieRepository) {
+        this.movieRepository = movieRepository;
     }
 
     @GetMapping
     public List<Movie> getAllMovies() {
-        return movieService.getAllMovies();
+        return movieRepository.findAll();
     }
 
     @PostMapping
-    public Movie createMovie(@RequestBody Movie movie) {
-
-        return movieService.saveMovie(movie);
+    public Movie addMovie(@RequestBody Movie movie) {
+        return movieRepository.save(movie);
     }
 }
