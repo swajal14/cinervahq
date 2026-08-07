@@ -23,3 +23,7 @@ logging:
   level:
     org.springframework.web: INFO
     org.hibernate.SQL: DEBUG
+
+tmdb:
+  api:
+    key: 55f9e41978a1e18e98e075c0ef623965
